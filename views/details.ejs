@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian's Book List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e2d5c1; /* Light beige */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .item {
+            background-color: #d5c5ae; /* Light beige */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            position: relative;
+        }
+
+        h3 {
+            color: #312229; /* Dark brown */
+        }
+
+        p {
+            color: #312229; /* Dark brown */
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #47596f; /* Light brown */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #9b6c3f; /* Darker brown */
+        }
+    </style>
+</head>
+<body>
+    <div class="item">
+        <form action="/back" method="post">
+            <input type="submit" value="Back">
+        </form> 
+
+        <a href="https://www.amazon.com/s?k=<%= book.isbn %>">
+            <img src="<%= book.imageResult %>" alt="Book Cover">
+        </a>
+
+       <h3><%= book.title %></h3>
+
+       <p><%= `ISBN: ${book.isbn ? book.isbn: 'N/A'}` %></p>
+       <p><%= `Date read: ${book.dayread ? new Date(book.dayread).toLocaleDateString('en-US') : 'N/A'}.` %></p>
+       <p><%= `Rating: ${book.rating ? book.rating + '/10' : 'N/A'}` %></p>
+       <p><%= book.bio %></p>
+       
+       <p>My Notes</p>
+       <p><%= book.fullreview %></p>
+    </div>
+</body>
+</html>

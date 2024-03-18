@@ -1,0 +1,110 @@
+/* Add or modify these styles in your main.css file */
+
+/* Add or modify these styles in your main.css file */
+
+body {
+    background-color: #e2d5c1;
+    margin: 0;
+    padding: 0;
+}
+
+.siteHeader {
+    background-color: #47596f; /* Darker brown */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.siteHeader h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.siteHeader h2 {
+    margin: 5px 0;
+    font-size: 24px;
+}
+
+.siteHeader p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.newButton {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add some space between the header and button */
+}
+
+.newButton input[type="submit"] {
+    background-color: #b18653; /* Light brown */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newButton input[type="submit"]:hover {
+    background-color: #97503d; /* Darker brown */
+}
+
+.bookItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.bookImage {
+    margin-right: 20px;
+}
+
+.bookImage img {
+    max-width: 100px; /* Adjust the max-width as needed */
+    border-radius: 8px;
+}
+
+.bookDetails {
+    flex-grow: 1;
+}
+
+.bookActions {
+    display: flex;
+    align-items: center;
+}
+
+.deleteButton,
+.editButton {
+    margin-right: 10px;
+}
+
+.deleteButton input[type="submit"],
+.editButton input[type="submit"],
+.newButton input[type="submit"]{
+    background-color: #47596f; /* Light brown */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.deleteButton input[type="submit"]:hover,
+.editButton input[type="submit"]:hover {
+    background-color: #47596f; /* Darker brown */
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-color: #54101d; /* Dark red */
+    margin: 20px 0; /* Adjust margin as needed */
+}
+
+a,
+a:visited {
+    color: #54101d; /* Dark red */
+}

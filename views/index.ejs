@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ians Book List</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div class="siteHeader">
+    <h1 class="header">IAN OBERMAN</h1>
+    <h2 class="headerSub">MY READING LIST</h2>
+    <p class="mainIntro">This is a site outlining all of the books that I have read, along with my thoughts on them.</p>
+    <p>By default, this site is showing my <a href = "/sort/rate">highest recommended</a> books first. Sort by 
+        <a href="/sort/date">date</a> or 
+        <a href="/sort/alphabetical">alphabetical.</a>
+        <br> <br>
+        Select a book cover image to navigate to its Amazon page!
+    </p>
+</div>
+
+<div class="newButton">
+    <form action="/add" method="post">
+        <input type="submit" value="New Post">
+    </form>
+</div>
+<div class="bookList">
+    <% for(let i = 0; i < bookList.length; i++) { %>
+        <% const book = bookList[i]; %>
+
+        <div class="bookItem"> <!-- Wrap each book item in a div with class "bookItem" -->
+            <div class="bookImage">
+                <a href="https://www.amazon.com/s?k=<%= book.isbn %>">
+                    <img src="<%= book.imageResult %>" alt="Book Cover">
+                </a>
+            </div>
+
+            <div class="bookDetails">
+                <h2>
+                    <a href="/details/<%= book.id %>">
+                        <%= book.title %>
+                    </a>
+                </h2>
+                
+                <p>
+                    <%= `Date read: ${book.dayread ? new Date(book.dayread).toLocaleDateString('en-US') : 'N/A'}. Rating: ${book.rating ? book.rating + '/10' : 'N/A'}` %>
+                </p>
+
+                <p>
+                    <%= book.bio %>
+                </p>
+            </div>
+
+            <div class="bookActions"> <!-- Place delete and edit buttons here -->
+                <form action="/delete" method="post" class="deleteButton">
+                    <input type="hidden" name="bookId" value="<%= book.id %>">
+                    <input type="submit" value="Delete">
+                </form>
+
+                <form action="/edit/<%= book.id %>" method="get" class="editButton">
+                    <input type="hidden" name="editItemId" value="<%= book.id %>">
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
+        </div>
+        <% if (i !== bookList.length - 1) { %>
+            <hr> <!-- Insert a horizontal line between items -->
+        <% } %> 
+    <% } %>
+</div>
+
+</body>
+</html>
